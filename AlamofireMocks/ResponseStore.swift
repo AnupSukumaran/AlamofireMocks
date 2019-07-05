@@ -15,4 +15,5 @@ public protocol ResponseStore {
     
     func data(for: URL, withParameters params: Parameters?) -> Data
     
+    func data(for filename: String) -> Data
 }

@@ -22,6 +22,29 @@ public class DefaultResponseStore: ResponseStore {
         return mockData(forPath: url.path, withParameters: params)
     }
     
+    public func data(for filename: String) -> Data {
+        return mockFilenameData(filename: filename)
+    }
+    
+    
+    private func mockFilenameData(filename: String) -> Data {
+        print("filename = \(filename)")
+        
+        if let mockUrl = bundle().url(forResource: filename, withExtension: "json") {
+            print("mockURL = \(mockUrl)")
+            
+            if let mockData = try? Data(contentsOf: mockUrl) {
+                return mockData
+            }
+            
+        }
+        
+        let message = "Mock file not found! filename: \(filename))"
+        print(message)
+        
+        return message.data(using: .utf8)!
+    }
+    
     private func mockData(forPath path: String, withParameters params: Parameters?) -> Data {
         let fileName = fileNameFromManifest(forPath: path, params: params) ?? "default.json"
         let (resource, fileExtension) = splitFileName(fileName)

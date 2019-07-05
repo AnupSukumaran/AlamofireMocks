@@ -30,6 +30,20 @@ public class MockSessionManager: SessionManagerProtocol {
         return MockDataRequest(data: data)
     }
     
+    @discardableResult
+    public func new_request(
+        _ urlConvertable: URLConvertible,
+        method: HTTPMethod,
+        parameters: Parameters?,
+        encoding: ParameterEncoding,
+        headers: HTTPHeaders?) -> DataRequestProtocol {
+        
+        let url = try! urlConvertable.asURL()
+        let filename = url.lastPathComponent
+        let data = responseStore.data(for: filename)
+        return MockDataRequest(data: data)
+    }
+    
     public func request(_ urlRequest: URLRequestConvertible) -> DataRequestProtocol {
         let request = try! urlRequest.asURLRequest()
         let data = responseStore.data(for: request)

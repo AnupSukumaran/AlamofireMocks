@@ -15,6 +15,9 @@ public protocol SessionManagerProtocol {
     func request(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?,
                  encoding: ParameterEncoding, headers: HTTPHeaders?)  -> DataRequestProtocol
     
+    @discardableResult
+    func new_request(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders?)  -> DataRequestProtocol
+    
     func request(_ urlRequest: URLRequestConvertible) -> DataRequestProtocol
     
     //
@@ -42,7 +45,7 @@ public protocol SessionManagerProtocol {
 public extension SessionManagerProtocol {
     
     @discardableResult
-    public func request(
+    func request(
         _ url: URLConvertible,
         method: HTTPMethod = .get,
         parameters: Parameters? = nil,
@@ -51,6 +54,18 @@ public extension SessionManagerProtocol {
         
         return request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
     }
+    
+    @discardableResult
+    func new_request(
+        _ url: URLConvertible,
+        method: HTTPMethod = .get,
+        parameters: Parameters? = nil,
+        encoding: ParameterEncoding = URLEncoding.default,
+        headers: HTTPHeaders? = nil) -> DataRequestProtocol {
+        
+        return new_request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
+    }
+    
     
     //
     // Download
@@ -89,6 +104,18 @@ extension SessionManager: SessionManagerProtocol {
     }
     
     public func request(_ urlRequest: URLRequestConvertible) -> DataRequestProtocol {
+        let dataRequest: DataRequest = request(urlRequest)
+        return dataRequest as DataRequestProtocol
+    }
+    
+    @discardableResult
+    public func new_request(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?,
+                        encoding: ParameterEncoding, headers: HTTPHeaders?)  -> DataRequestProtocol {
+        let dataRequest: DataRequest = request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
+        return dataRequest as DataRequestProtocol
+    }
+    
+    public func new_request(_ urlRequest: URLRequestConvertible) -> DataRequestProtocol {
         let dataRequest: DataRequest = request(urlRequest)
         return dataRequest as DataRequestProtocol
     }

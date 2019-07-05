@@ -61,10 +61,10 @@ class ViewController: UIViewController {
     @IBAction
     func submitClicked() {
         disableSubmitButton()
-        selectedSessionManager.request(selectedRequest.url, method: selectedRequest.method,
-                                       parameters: selectedRequest.params).responseJSON { response in
+        
+selectedSessionManager.new_request(selectedRequest.url, method: selectedRequest.method, parameters: selectedRequest.params).responseJSON { (response) in
             self.enableSubmitButton()
-
+            
             if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
                 self.responseTextArea.text = utf8Text
             } else {

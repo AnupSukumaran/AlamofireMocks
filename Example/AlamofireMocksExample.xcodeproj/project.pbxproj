@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E165D4422CF239000592C2B /* get.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E165D4222CF238300592C2B /* get.json */; };
 		9024714EFD11234C40DAF76C /* Pods_AlamofireMocksExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 655C618B54DCD8FE57D24BD9 /* Pods_AlamofireMocksExample.framework */; };
 		E58950261F72891C00B32738 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58950251F72891C00B32738 /* AppDelegate.swift */; };
 		E58950281F72891C00B32738 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58950271F72891C00B32738 /* ViewController.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E165D4222CF238300592C2B /* get.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = get.json; sourceTree = "<group>"; };
 		3CEC083C021DBABEA4F81F25 /* Pods-AlamofireMocksExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireMocksExample.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-AlamofireMocksExample/Pods-AlamofireMocksExample.debug.xcconfig"; sourceTree = "<group>"; };
 		655C618B54DCD8FE57D24BD9 /* Pods_AlamofireMocksExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlamofireMocksExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68960EA6C128D318B484AFAD /* Pods-AlamofireMocksExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireMocksExample.release.xcconfig"; path = "../Pods/Target Support Files/Pods-AlamofireMocksExample/Pods-AlamofireMocksExample.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		E58950241F72891C00B32738 /* AlamofireMocksExample */ = {
 			isa = PBXGroup;
 			children = (
+				0E165D4222CF238300592C2B /* get.json */,
 				EFDDACF61F72C8E5009B9B29 /* mocks */,
 				E58950251F72891C00B32738 /* AppDelegate.swift */,
 				E58950271F72891C00B32738 /* ViewController.swift */,
@@ -234,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E165D4422CF239000592C2B /* get.json in Resources */,
 				EFDDACF71F72C8F4009B9B29 /* mocks in Resources */,
 				E58950301F72891C00B32738 /* LaunchScreen.storyboard in Resources */,
 				E589502D1F72891C00B32738 /* Assets.xcassets in Resources */,
